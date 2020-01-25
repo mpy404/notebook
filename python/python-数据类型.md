@@ -213,7 +213,128 @@ eval() --- 接收一个字符串，并将字符串解释成Python表达式，进
 
 ```
 
-
-
-
 6 字典类型 (dict)
+
+字典是一系列健-值对。每个键都与一个值相关联，你可以用键来访问与之相关联的健
+
+```py
+
+	创建一个字典
+
+	dog = {
+		'name' : 'beibei',
+		'age' : 2,
+		'color' : gray
+	}
+
+	访问字典中的值
+
+	print(dog['name])		--- 'beibei'
+	print(dog['age])		--- 2
+
+	添加字典健——值
+
+	dog['weight'] = 100
+	dog['eyes'] = 2
+	
+	修改字典中的值
+
+	dog['name'] = 'huanghuang'
+	dog['age'] = 1
+
+	删除字典中的值
+
+	del dog['eyes']
+
+```
+
+便利字典
+
+```py
+
+people = {
+	"name": "mpy",
+	"age": 19,
+	"sex": "man",
+	"width": 120,
+	"heihgt": 180
+	}
+
+	便利键——值
+
+	for key , value in people.items():
+		print('keys:' + key)
+		print('Values' + value)
+
+	便利键(想要让键按照大小写顺序打印加上sorted())
+
+	for name in sorted(people.keys()):
+		print(name)
+
+	便利值(想要让值按照大小写顺序打印加上sorted())
+
+	for value in sorted(people.values()):
+		print(value)
+
+	便利独一无二的健或值/去掉相同的键或值	(加上set())
+
+	language = {
+		'jen' : 'python',
+		'ben' : 'c',
+		'ailis' : 'java',
+		'john' : 'c'
+	}
+										让里面的值不会重复出现，并且按照字母顺序打印出来
+	for key in set(lanaguage.keys()): 	=====》	for key in sorted(set(language.keys())):
+														
+		print(key)									print(key)
+
+	for value in set(language.values()):=====》	for value in sorted(set(language.values())):	
+
+		print(value)								print(value)
+
+```
+
+字典存放在列表中
+
+```py
+
+	lists = []
+	for lists_number in range(10):
+		new_list = {'color' : 'red', 'name' : 'a'}
+		lists.append(new_list)
+	for list in lists[:5]:
+		print(list)
+
+```
+
+在列表中存放字典
+
+```py
+
+language = {
+    "jhon": ["python", "c"],
+    "winner": ["javascript", "java"],
+    "tom": ["html5", "css3", "javascript"],
+		}
+for name, languages in language.items():
+    print(name.title())
+    for language in languages:
+        print(language.title())
+    print("\n")
+
+```
+在字典中存放字典
+
+```py
+
+
+a = {"aa": {"aaa": "aaa"}, "bb": {"bbb": "bbb"}}
+print(a)
+
+for name, values in a.items():
+    print(name)
+    for value in values:
+        print(value)
+
+```
