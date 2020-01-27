@@ -329,7 +329,14 @@ for name, languages in language.items():
 ```py
 
 
-a = {"aa": {"aaa": "aaa"}, "bb": {"bbb": "bbb"}}
+a = {
+	"aa": {
+		"aaa": "aaa"
+		}, 
+	"bb": {
+		"bbb": "bbb"
+		}
+	}
 print(a)
 
 for name, values in a.items():
