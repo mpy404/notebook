@@ -6,11 +6,18 @@ import module
 
 module.print_dicts("m", "py", a="a", b="b")
 
+
 # 从模块中导入某个函数
 from module import print_dicts, print_list
 
 a = [1, 2, 3, 4, 5]
 print_list(a)
+
+# 导入模块中所有的函数
+from module import *
+
+c = ["a", "b", "c", "d"]
+print_list(c)
 
 # 使用as更改模块名字
 import module as dicts
