@@ -90,3 +90,24 @@ print(john.norun())
 
 # my_tesla = ElectricCar("tesla", "model s", 2016)
 # print(my_tesla.get_descriptive_name())
+
+from random import randint
+
+
+class Sai(object):
+    def __init__(self, name):
+        self.name = name
+        self.sides = 6
+
+    def reng(self):
+
+        sides = randint(1, 6)
+        print(self.name + "仍的是" + str(sides) + "点")
+        sides1 = randint(1, 10)
+        print(self.name + "仍的是" + str(sides1) + "点")
+        sides2 = randint(1, 20)
+        print(self.name + "仍的是" + str(sides2) + "点")
+
+
+mpy = Sai("mpy")
+mpy.reng()
